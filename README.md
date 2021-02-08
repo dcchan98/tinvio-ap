@@ -29,3 +29,15 @@ Fully responsive using react-bootstrap
 
 Website hosted at https://tinvio-ap-seanchan.netlify.app/
 
+# c) Tech used
+
+react, redux, redux persist, redux thunk
+
+# d) Additional Information
+
+Time spent on first iteration (roughly 6 hours excluding rest time)
+
+11am to 12pm 
+1pm to 6pm
+
+More details can be checked in the specific commits
