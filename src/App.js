@@ -1,10 +1,11 @@
-import { Component } from "react";
-import Comment from "./components/Comment"
+import PostPage from "./pages/PostPage"
+
+
 
 function App() {
   return (
-    <div className="App">
-     <Comment name = "Sean"/>
+    <div className="App">  
+     <PostPage/>  
     </div>
   );
 }
