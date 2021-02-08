@@ -28,11 +28,11 @@ class PostPage extends Component {
 				<HeaderImage imageURL={imageURL} />
 				<br></br>
 				<div className='container'>
-					<h1>Users</h1>
+					<h1>Select Users</h1>
 
 					{this.props.fetchedUsers != null ?
 
-           this.props.fetchedUsers.map(user=>user.name)
+           this.props.fetchedUsers.map(user=><h6>{user.name}</h6>)
 
            : ""}
 
