@@ -6,3 +6,7 @@ export const fetchUsers = user =>{
     dispatch({ type: 'FETCH_USERS', payload: resJSON });
   }
 }
+
+export const setCurrentUser = user =>{
+    return { type: 'SET_CURRENT_USER', payload: user }
+}

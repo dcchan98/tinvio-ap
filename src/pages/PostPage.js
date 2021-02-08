@@ -3,16 +3,13 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { fetchUsers } from "../redux/user/user-actions";
+import { fetchUsers,setCurrentUser } from "../redux/user/user-actions";
 
 import HeaderImage from "../components/HeaderImage";
-import IconText from "../components/IconText";
+import UserInfo from "../components/UserInfo";
 import Card from "../components/Card";
 
 const imageURL = "images/image.jpg";
-const phoneURL = "images/phone.png";
-const categoryURL = "images/category.png";
-const shopURL = "images/shop.png";
 
 class PostPage extends Component {
 	constructor(props) {
@@ -24,6 +21,7 @@ class PostPage extends Component {
   
   handleUserSelection = (user)=>{
     console.log(user)
+    this.props.setCurrentUser(user);
   }
 
 	render() {
@@ -44,21 +42,11 @@ class PostPage extends Component {
 						  ))
 						: ""}
 
-					<h1>Leanne Graham</h1>
-					<br />
-					<IconText iconsURL={phoneURL} text={"12345"} />
-					<br />
-					<IconText
-						iconsURL={categoryURL}
-						text={"Harness . Real Time . Market"}
-					/>
-					<br />
-					<IconText
-						iconsURL={shopURL}
-						text={"Kulas Light, Apt. 556 , Singapore 123456"}
-					/>
-					<br />
-					<br />
+          <br></br>
+
+          <UserInfo currentUser = {this.props.currentUser}/>
+
+					
 					<h1>Leanne Graham Post's</h1>
 					<br />
 					<h6 className='text-secondary'>2 POSTS</h6>
@@ -75,9 +63,10 @@ class PostPage extends Component {
 
 const mapStateToProps = (state /*, ownProps*/) => {
 	return {
-		fetchedUsers: state.user.fetchedUsers,
+    fetchedUsers: state.user.fetchedUsers,
+    currentUser:state.user.currentUser
 	};
 };
-const mapDispatchToProps = { fetchUsers };
+const mapDispatchToProps = { fetchUsers,setCurrentUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage);
