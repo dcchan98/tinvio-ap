@@ -1,6 +1,6 @@
 # a) How to Run application
 
-Head over to this link [here](https://www.tinvio-ap-sean-chan.com)
+Head over to this link [here](https://tinvio-ap-seanchan.netlify.app/)
 Click on available users to get their posts and their details
 
 # b) Objectives attempted
@@ -27,5 +27,5 @@ Fully responsive using react-bootstrap
 
 ### `obj 5 (completed)`
 
-Website hosted at (to be updated)
+Website hosted at https://tinvio-ap-seanchan.netlify.app/
 
