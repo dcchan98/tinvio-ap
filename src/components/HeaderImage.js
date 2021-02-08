@@ -2,11 +2,11 @@ import React from 'react'
 
 
 
-export default function HeaderImage() {
+export default function HeaderImage(props) {
   return (
     <div>
       <header className= "row" >
-        <img src="images/image.jpg" className ="headerImage col-sm-12 " alt="Responsive image"/>
+        <img src={props.imageURL} className ="headerImage col-sm-12 " alt="Responsive image"/>
       </header>
     </div>
   )
