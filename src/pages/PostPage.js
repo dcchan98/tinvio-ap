@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import HeaderImage from '../components/HeaderImage'
 import IconText from '../components/IconText'
+import Card from '../components/Card'
 
 const imageURL = "images/image.jpg"
 const phoneURL = 'images/phone.png'
@@ -25,8 +26,21 @@ export default class PostPage extends Component {
       <br/>
       <IconText iconsURL = {shopURL} text = {'Kulas Light, Apt. 556 , Singapore 123456'}/>
       <br/>
-      <br></br>
+      <br/>
+      <h1>Leanne Graham Post's</h1>
+      <br/>
+      <h6 className="text-secondary">2 POSTS</h6>
+    {/* Use map to change  */}
+      <br/>
+      <Card title ="Title1" body ="Body1"/>
+      <br/>
+      <Card title ="Title2" body ="Body2"/>
+
+    
+
       </div>
+
+      
      
 
       
