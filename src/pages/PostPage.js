@@ -20,7 +20,11 @@ class PostPage extends Component {
 	}
 	componentDidMount() {
 		this.props.fetchUsers();
-	}
+  }
+  
+  handleUserSelection = (user)=>{
+    console.log(user)
+  }
 
 	render() {
 		return (
@@ -30,11 +34,15 @@ class PostPage extends Component {
 				<div className='container'>
 					<h1>Select Users</h1>
 
-					{this.props.fetchedUsers != null ?
-
-           this.props.fetchedUsers.map(user=><h6>{user.name}</h6>)
-
-           : ""}
+					{this.props.fetchedUsers != null
+						? this.props.fetchedUsers.map((user) => (
+								<div>
+									<button onClick={()=>this.handleUserSelection(user)} type='button' class='btn btn-secondary mb-1'>
+										{user.name}
+									</button>
+								</div>
+						  ))
+						: ""}
 
 					<h1>Leanne Graham</h1>
 					<br />
