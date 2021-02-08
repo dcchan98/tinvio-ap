@@ -1,7 +1,7 @@
 
 const INITIAL_STATE = {
   fetchedUsers: [],
-  currentUser:{},
+  currentUser:null,
   currentPosts:[]
 }
 
@@ -17,6 +17,11 @@ const userReducer = (state= INITIAL_STATE,action)=>{
           ...state,
           currentUser:action.payload
         }
+        case 'SET_CURRENT_POSTS':
+          return {
+            ...state,
+            currentPosts:action.payload
+          }
     default:
       return state;
   }

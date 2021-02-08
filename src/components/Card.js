@@ -15,6 +15,7 @@ export default function Card({ title, body }) {
 	
 				</div>
 			</div>
+			<br />
 		</div>
 	);
 }

@@ -9,7 +9,7 @@ const persistConfig = {
 	key: "root",
 	storage,
 	// array to contain what to persist
-	whitelist: ["user"],
+	whitelist: ["users"],
 };
 
 const rootReducer = combineReducers({ user: userReducer });

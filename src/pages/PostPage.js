@@ -3,11 +3,15 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { fetchUsers,setCurrentUser } from "../redux/user/user-actions";
+import {
+	fetchUsers,
+	setCurrentUser,
+	setCurrentPosts,
+} from "../redux/user/user-actions";
 
 import HeaderImage from "../components/HeaderImage";
 import UserInfo from "../components/UserInfo";
-import Card from "../components/Card";
+import Post from "../components/Post";
 
 const imageURL = "images/image.jpg";
 
@@ -17,12 +21,13 @@ class PostPage extends Component {
 	}
 	componentDidMount() {
 		this.props.fetchUsers();
-  }
-  
-  handleUserSelection = (user)=>{
-    console.log(user)
-    this.props.setCurrentUser(user);
-  }
+	}
+
+	handleUserSelection = (user) => {
+		console.log(user);
+		this.props.setCurrentUser(user);
+		this.props.setCurrentPosts(user.id);
+	};
 
 	render() {
 		return (
@@ -30,31 +35,35 @@ class PostPage extends Component {
 				<HeaderImage imageURL={imageURL} />
 				<br></br>
 				<div className='container'>
-					<h1>Select Users</h1>
+					<h1>User List</h1>
 
 					{this.props.fetchedUsers != null
 						? this.props.fetchedUsers.map((user) => (
 								<div>
-									<button onClick={()=>this.handleUserSelection(user)} type='button' class='btn btn-secondary mb-1'>
+									<button
+										onClick={() => this.handleUserSelection(user)}
+										type='button'
+										class='btn btn-secondary mb-1'>
 										{user.name}
 									</button>
 								</div>
 						  ))
 						: ""}
 
-          <br></br>
+					<br></br>
 
-          <UserInfo currentUser = {this.props.currentUser}/>
-
-					
-					<h1>Leanne Graham Post's</h1>
-					<br />
-					<h6 className='text-secondary'>2 POSTS</h6>
-					{/* Use map to change  */}
-					<br />
-					<Card title='Title1' body='Body1' />
-					<br />
-					<Card title='Title2' body='Body2' />
+					{
+						this.props.currentUser!=null?
+						<>
+							<UserInfo currentUser={this.props.currentUser} />
+							<h1>{this.props.currentUser.name} Post's</h1>
+							<br />
+							<h6 className='text-secondary'>
+								{this.props.currentPosts.length} POSTS
+							</h6>
+							<Post currentPosts={this.props.currentPosts} />
+						</>:<h1>Select a user</h1>
+					}
 				</div>
 			</div>
 		);
@@ -63,10 +72,11 @@ class PostPage extends Component {
 
 const mapStateToProps = (state /*, ownProps*/) => {
 	return {
-    fetchedUsers: state.user.fetchedUsers,
-    currentUser:state.user.currentUser
+		fetchedUsers: state.user.fetchedUsers,
+		currentUser: state.user.currentUser,
+		currentPosts: state.user.currentPosts,
 	};
 };
-const mapDispatchToProps = { fetchUsers,setCurrentUser };
+const mapDispatchToProps = { fetchUsers, setCurrentUser, setCurrentPosts };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage);

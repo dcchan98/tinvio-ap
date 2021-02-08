@@ -8,7 +8,6 @@ const shopURL = "images/shop.png";
 
 
 export default function UserInfo(props) {
-  console.log(props.currentUser)
 
   const companyBs = props.currentUser.company.bs.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))).replaceAll(' ', ' . ');
 
